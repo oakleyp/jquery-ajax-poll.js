@@ -39,10 +39,10 @@ function ajaxPoll({ajax, attempt, maxAttempts = 60, interval = 8000, until, time
 
     return {
         until(fn) {
-            const unitlChainCallback = (typeof until === 'function') ? // If there's already an until function, create a new until function that combines it and the next caller's
+            const untilChainCallback = (typeof until === 'function') ? // If there's already an until function, create a new until function that combines it and the next caller's
                 (...ajaxArgs) => { return until(...ajaxArgs) && fn(...ajaxArgs) } :
                 fn;
-            return ajaxPoll({ajax, attempt, maxAttempts, interval, until: unitlChainCallback, timeout, finished});
+            return ajaxPoll({ajax, attempt, maxAttempts, interval, until: untilChainCallback, timeout, finished});
         },
         timeout: (fn) => ajaxPoll({ajax, attempt, maxAttempts, interval, until, timeout: fn, finished}),
         finished: (fn) => ajaxPoll({ajax, attempt: 0, maxAttempts, interval, until, timeout, finished: fn})
