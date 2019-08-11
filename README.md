@@ -1,6 +1,6 @@
 ## jQuery ajaxPoll()
 
-A utility function made to use jQuery's ajax() method to poll an API with the specified options until it returns a given response.
+A utility function made to use jQuery's ajax() method to poll an API with the specified options until it returns the desired response.
 
 This example can easily be modified to repeatedly call any function that returns a promise-like result, rather than jQuery.
 
